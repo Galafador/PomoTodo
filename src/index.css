@@ -1,0 +1,68 @@
+:root {
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #202020;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --indicator-fill-width: 0%;
+  --font-family-display: SF Pro Display, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-family-text: SF Pro Text, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* default dark theme */
+  --icon-button-color: white;
+  --text-color: white;
+  --text-color-invert: black;
+  /* light theme override */
+  [data-theme="light"] {
+      --icon-button-color: black;
+      --text-color: black;
+      --text-color-inver: white;
+  }
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+@media (hover:none) {
+    *:hover {
+        all:unset;
+    }
+}
+
+p, h4 {
+    margin: 0;
+    padding: 0;
+    -webkit-user-select: none;
+    -ms-user-select: none;    
+    user-select: none;
+}
+
+html, body {
+    padding: 0px;
+    margin: 0px;
+    min-height: 100dvh;
+    font-family: sans-serif;
+    gap: 0;
+    background: transparent;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: background 1s ease-out;
+}
+
+#root {
+    margin: 0 auto;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    overflow: visible;
+    max-width: 460px;
+    min-width: 320px;
+}

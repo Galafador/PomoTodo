@@ -1,0 +1,537 @@
+#app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    gap:20px;
+    align-self: stretch;
+    overflow: visible;
+    -webkit-user-select: none;
+    -ms-user-select: none;    
+    user-select: none;
+}
+
+#pomodoro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    align-self: stretch;
+}
+
+#header {
+    display: flex;
+    padding: 20px 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+    overflow: hidden;
+    border-radius: 12px;
+    border-radius: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.60);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.60);
+    background: linear-gradient(315deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.25) 100%), rgba(8, 8, 8, 0.80);
+    box-shadow: -2px 2px 4px 0px rgba(0, 0, 0, 0.30), 2px 2px 4px 0px rgba(0, 0, 0, 0.30), 0px 8px 8px 0px rgba(0, 0, 0, 0.20);
+    backdrop-filter: blur(5px);
+}
+
+#title-button-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+}
+
+#title-text {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+}
+
+#title-text h1 {
+    color: #FFF;
+    font-family: var(--font-family-display);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#indicators-container {
+    display: flex;
+    padding: 4px;
+    justify-content: start;
+    align-items: center;
+    align-self: stretch;
+    flex: 1 0 0;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.50);
+    background: rgba(29, 29, 29, 0.80);
+}
+
+#indicator-fill {
+    display: flex;
+    height: 4px;
+    width: var(--indicator-fill-width, 0%);
+    align-self: stretch;
+    background: linear-gradient(90deg, #314A52 0%, #ACBDC5 100%);
+}
+
+#indicator-left {
+    display: flex;
+    height: 4px;
+    width: calc(100% - var(--indicator-fill-width));
+    align-self: stretch;
+    background: #314A52;
+}
+
+#pomodoro-timer {
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    align-self: stretch;
+    border-top: 1px solid rgba(255, 255, 255, 0.60);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.60);
+    background: linear-gradient(315deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.25) 100%), rgba(8, 8, 8, 0.80);
+    box-shadow: -2px 2px 4px 0px rgba(0, 0, 0, 0.30), 2px 2px 4px 0px rgba(0, 0, 0, 0.30), 0px 8px 8px 0px rgba(0, 0, 0, 0.20);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+}
+
+#top-buttons-container {
+    display: flex;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+}
+
+#timer-display {
+    padding: 24px 0px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    display: flex;
+}
+
+#counter {
+    color: #FFF;
+    text-shadow: 0 4px 16px rgba(0,0,0,0.2), 0 2px 4px rgba(0,0,0,0.7);
+    text-align: center;
+    font-family: var(--font-family-display);
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#bottom-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+}
+
+#bottom-buttons-container #left, #bottom-buttons-container #right {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+.toggle-button {
+    display: flex;
+    padding: 8px 4px;
+    align-items: center;
+    justify-content: center;
+    flex: 1 0 0;
+    min-width: 96px;
+    border: 1px solid #77777700;
+    border-radius: 8px;
+    background: rgba(29, 29, 29, 0.00);
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    font-family: var(--font-family-text);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.toggle-button:hover {
+    background: rgba(61, 61, 61, 0);
+    border: 1px solid #777;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.toggle-button:active {
+    background: rgba(100, 100, 100, 0.8);
+    box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.25) inset;
+}
+
+.toggle-button.on {
+    border-radius: 8px;
+    border: 1px solid #777;
+    background: rgba(29, 29, 29, 1.0);
+}
+
+.toggle-button.on:hover {
+    background: rgba(61, 61, 61, 0.80);
+}
+
+.start-button {
+    padding: 20px 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    display: flex;
+    border-radius: 8px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, rgba(255, 255, 255, 0.15) 100%), #1D1D1D;
+    box-shadow: 0px 0px 6px 0px rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(246, 246, 246, 0.25);
+    cursor: pointer;
+    color: #FFF;
+    font-family: var(--font-family-display);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
+}
+
+.start-button:hover {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, rgba(255, 255, 255, 0.15) 100%), #666666;
+}
+
+.start-button.paused {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, rgba(255, 255, 255, 0.15) 100%), #4e4e4e;
+}
+
+.start-button.paused:hover {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, rgba(255, 255, 255, 0.15) 100%), #666666;
+}
+
+.icon-button {
+    color: var(--icon-button-color);
+    display: flex;
+    height: 50px;
+    width: 50px;
+    padding: 4px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background-color: transparent;
+    border-radius: 8px;
+    border: 1px solid #77777700;
+    cursor: pointer;
+}
+
+.icon-button:hover {
+    border: 1px solid #777;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.icon-button:active {
+    background: rgba(100, 100, 100, 0.8);
+    box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.25) inset;
+}
+
+.text-button {
+    display: flex;
+    padding: 8px 16px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #777;
+    border-radius: 8px;
+    background: rgba(29, 29, 29, 1.0);
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    font-family: var(--font-family-text);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.text-button:active {
+    background: rgba(100, 100, 100, 0.8);
+    box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.25) inset;
+}
+
+.text-button:disabled {
+    background: rgba(100, 100, 100, 0.8);
+}
+
+.modal-overlay {
+    color: var(--text-color-invert);
+    display: flex;
+    padding: 20px;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -ms-user-select: none;    
+    user-select: none;
+}
+
+.modal-content-light {
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex: 1 0 0;
+    width: 100%;
+    max-width: 460px;
+    min-width: 320px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background: #FFF;
+}
+
+#modal-header {
+    display: flex;
+    padding-bottom: 0px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+#modal-header #title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex: 1 0 0;
+}
+
+#modal-header #title h2 {
+    flex: 1 0 0;
+    font-family: var(--font-family-display);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#modal-button-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+}
+
+#settings-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    align-self: stretch;
+}
+
+#timer-setting {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+}
+
+#timer-setting-items-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.timer-setting-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: visible;
+    gap: 8px;
+    width: 100%;
+    min-width: 80px;
+}
+
+.timer-setting-items input {
+    color: var(--text-color-invert);
+    display: flex;
+    padding: 14px 8px;
+    width: 100%;
+    min-width: 0px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background: #ebebeb;
+}
+
+#long-break-interval-setting {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#long-break-interval-setting input {
+    color: var(--text-color-invert);
+    display: flex;
+    padding: 14px 8px;
+    width: 100%;
+    min-width: 0px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background: #ebebeb;
+}
+
+.todo-item {
+    display: flex;
+    padding: 4px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 8px;
+    background: #FFF;
+}
+
+#todo-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+}
+
+.checkbox {
+    padding: 4px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.checkbox-label {
+    display: flex;
+    padding: 4px 0px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+    flex: 1 0 0;
+    overflow: hidden;
+    color: #1D1D1D;
+    text-overflow: ellipsis;
+    font-family: var(--font-family-text);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.checkbox.checked {
+    background-color:  rgb(80, 80, 80);
+    border-color: rgba(29, 29, 29, 1);
+}
+
+.label-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    align-self: stretch;
+}
+
+#input-task {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+}
+
+#input-task input {
+    display: flex;
+    padding: 14px 8px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
+    border-radius: 8px;
+    background: rgba(29, 29, 29, 0.80);
+    font-family: var(--font-family-text);
+    color: var(--text-color);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+#todo-app {
+    display: flex;
+    padding: 20px 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    align-self: stretch;
+    border-radius: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.60);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.60);
+    background: linear-gradient(315deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.25) 100%), rgba(8, 8, 8, 0.80);
+    box-shadow: -2px 2px 4px 0px rgba(0, 0, 0, 0.30), 2px 2px 4px 0px rgba(0, 0, 0, 0.30), 0px 8px 8px 0px rgba(0, 0, 0, 0.20);
+    backdrop-filter: blur(5px);
+}
+
+
+/* Utility classes start here */
+.text-black {
+    color: black;
+}
+
+.text-lg {
+    font-size: large;
+}
+
+.background-dark {
+    background-color: rgba(29, 29, 29, 0.80);
+}
+
+.background-lightgray {
+    background-color: rgb(180, 180, 180);
+}
